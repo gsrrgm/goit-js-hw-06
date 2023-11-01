@@ -2,7 +2,7 @@
 // Обов'язково використовуй метод document.createElement().
 // Додасть назву інгредієнта як його текстовий вміст.
 // Додасть елементу клас item.
-// Після чого, вставить усі <li> за одну операцію у 
+// Після чого, вставить усі <li> за одну операцію у
 // список ul#ingredients.
 
 const ingredients = [
@@ -14,11 +14,13 @@ const ingredients = [
   "Condiments",
 ];
 
-ingredients.forEach(element => {
-  const liEl = document.createElement('li')
-  const ulEl = document.querySelector("#ingredients")
-  liEl.textContent = element 
-  liEl.classList.add('item')
-  ulEl.append(liEl)
-  console.log(liEl)
+const ulList = document.querySelector("#ingredients");
+console.log("ulList: ", ulList);
+
+ingredients.map((ingridient) => {
+  const liItem = document.createElement("li");
+  liItem.textContent = `${ingridient}`;
+  liItem.classList.add("item");
+  ulList.append(liItem);
+  return ulList;
 });
