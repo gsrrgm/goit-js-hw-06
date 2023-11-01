@@ -13,10 +13,20 @@ const images = [
   },
 ];
 
-images.forEach((element) => {
-  const urlEl = element.url;
-  const altEl = element.alt;
-  const liEl = `<li "><img src="${urlEl}" alt="${altEl}"></li>`;
-  const ulEl = document.querySelector(".gallery");
-  ulEl.insertAdjacentHTML("beforeend", liEl);
-});
+// images.forEach((element) => {
+//   const urlEl = element.url;
+//   const altEl = element.alt;
+//   const liEl = `<li "><img src="${urlEl}" alt="${altEl}"></li>`;
+//   const ulEl = document.querySelector(".gallery");
+//   ulEl.insertAdjacentHTML("beforeend", liEl);
+// });
+
+const list = document.querySelector(".gallery");
+creatMarkup(images);
+function creatMarkup(arr) {
+  const markup = arr
+    .map(({ url, alt }) => `<li><img src="${url}" alt="${alt}"></li>`)
+    .join("");
+
+  list.insertAdjacentHTML("beforeend", markup);
+}
