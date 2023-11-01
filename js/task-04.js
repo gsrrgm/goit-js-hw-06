@@ -4,15 +4,13 @@
 
 let counterValue = 0;
 const counter = document.querySelector("#counter");
+const value = document.querySelector("#value");
 const handleClick = (event) => {
   if (!event.target.hasAttribute("data-action")) {
     return;
   }
-
   counterValue += Number(event.target.textContent);
-  const value = document.querySelector("#value");
   value.textContent = counterValue;
-
 };
 
 counter.addEventListener("click", handleClick);
